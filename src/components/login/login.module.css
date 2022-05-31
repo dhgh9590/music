@@ -1,6 +1,6 @@
-.section1{width: 100%;height: 100vh;display: flex; justify-content: center; align-items: center; background: url(../../../public/img/login_bg.jpg)no-repeat center;}
+.section1{width: 100%;height: 100vh;display: flex; flex-direction: column; justify-content: center; align-items: center;  background: url(../../../public/img/login_bg.jpg)no-repeat center;}
 
-.login_box{width: 400px;height: 250px; backdrop-filter: blur(10px); padding: 50px; box-sizing: border-box; border-radius: 15px; background: rgba(255, 255, 255, 0.2);}
+.login_box{width: 400px;height: 250px;padding: 50px; box-sizing: border-box; background: rgba(255, 255, 255, 0.6); margin-top: -10px; border-radius:0 0 10px 10px;  backdrop-filter: blur(10px);}
 .wrap{width: 100%;height: 100%; display: flex; justify-content: center;flex-direction: column;}
 .login_box h2{font-size: 22px; font-weight:bold ;}
 .login_box p{font-size: 16px;}
@@ -8,3 +8,10 @@
 .loginBtt{display: flex; justify-content: center; align-items: center; margin-top: 20px;  cursor: pointer; width: 100%;height: 40px; background: #fff; border: 1px solid #ddd; box-sizing: border-box; border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;}
 .loginBtt em{font-size: 16px; font-weight: 500;}
 .loginBtt img{width: 30px;height: 30px; object-fit: cover;}
+
+.text_box{width: 400px;height: 250px;background: #fff; background-image: url(../../../public/img/login1.png); background-position:0px -70px; border-radius: 10px;  position: relative; box-sizing: border-box; z-index: 1000; box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;}
+.text_box .text{width: 100%;height: 100%; background: rgba(255, 255, 255, 0.7); padding: 50px; box-sizing: border-box; border-radius: 10px;  }
+.text_box .text > div{width: 100%; position: absolute; top: 50%;left: 50%; transform: translate(-50%,-50%); padding: 0 50px; box-sizing: border-box;}
+.text_box h2{font-size: 26px; font-weight: bold; }
+.text_box h2 span{color: #71aeb1;}
+.text_box em{font-size: 16px;}

@@ -17,6 +17,14 @@ const Login = (props) => {
     return (
         <div>
             <section className={styles.section1}>
+                <div className={styles.text_box}>
+                    <div className={styles.text}>
+                        <div>
+                            <h2>Hi,<span> Welcome!</span></h2>
+                            <em>A site that recommends music among users</em>
+                        </div>  
+                    </div>
+                </div>
                 <div className={styles.login_box}>
                     <div className={styles.wrap}>
                         <h2>LOGIN</h2>

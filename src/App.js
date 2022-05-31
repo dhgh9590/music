@@ -14,7 +14,8 @@ function App() {
   let [count,setCount] = useState();
   let [correction,setCorrection] = useState();
 
-  useEffect(()=>{
+
+  function onData(){
     fetch(`http://localhost:8080/data`)
       .then(res => res.json())
       .then(data => {
@@ -23,6 +24,11 @@ function App() {
         }));
         setCount(data.posts.length);
       })
+  }
+
+
+  useEffect(()=>{
+    onData();
   },[count])
 
   /* 로그인 기능 */
@@ -51,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={localStorage.getItem("emailCheck") ? <Main setEmailCheck={setEmailCheck} data={data} count={count} setCount={setCount} setCorrection={setCorrection}></Main> : <Login goToHome={goToHome}></Login>}></Route>
+        <Route path='/' element={localStorage.getItem("emailCheck") ? <Main setEmailCheck={setEmailCheck} data={data} setData={setData} onData={onData} count={count} setCount={setCount} setCorrection={setCorrection}></Main> : <Login goToHome={goToHome}></Login>}></Route>
         <Route path='/edit' element={<Edit setEmailCheck={setEmailCheck} setCount={setCount}></Edit>}></Route>
         <Route path='/correction' element={<Correction setEmailCheck={setEmailCheck} setCount={setCount} correction={correction}></Correction>}></Route>
       </Routes>

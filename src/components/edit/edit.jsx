@@ -33,7 +33,7 @@ const Edit = (props) => {
             headers: {
             "Content-Type": "application/json; charset=utf-8"	
             },
-            body: JSON.stringify({title:title,url:url,uid:uid,time:time,name:userName,photo:userPhoto})
+            body: JSON.stringify({title:title,url:url,uid:uid,time:time,name:userName,photo:userPhoto,heart:0,heartUser:[]})
         })
         setTimeout(()=>{
             props.setCount(0)

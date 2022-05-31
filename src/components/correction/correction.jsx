@@ -15,6 +15,7 @@ const Correction = (props) => {
     let [titleValue,setTitleValue] = useState(props.correction.title);
     let [urlValue,setUrlValueValue] = useState(props.correction.url);
 
+    //데이터 수정 함수
     function formBtt(){
         fetch('http://localhost:8080/edit', {
             method: 'put',
