@@ -18,7 +18,7 @@ const Nav = (props) => {
                                 <img src={userPhoto} alt="" />
                             </div>
                             <div className={styles.user}>
-                                <strong>{userName}님</strong>
+                                <strong>{userName} 님</strong>
                                 <em onClick={()=>{localStorage.removeItem("emailCheck");props.setEmailCheck(false);navigate('/')}}>LOGOUT</em>
                             </div>
                         </li>

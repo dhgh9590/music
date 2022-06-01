@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 
 const Correction = (props) => {
     let navigate = useNavigate();
-    let [title,setTitle] = useState();
-    let [url,setUrl] = useState();
+    let [title,setTitle] = useState(props.correction.title);
+    let [url,setUrl] = useState(props.correction.url);
     let uid = localStorage.getItem("uid");
     let userName = localStorage.getItem("userName");
     let userPhoto = localStorage.getItem("photoURL");
@@ -29,6 +29,7 @@ const Correction = (props) => {
             props.setCount(0);
         },100)
     }
+
 
     return (
         <div>

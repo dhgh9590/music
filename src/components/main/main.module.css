@@ -2,8 +2,8 @@
 .container{max-width: 1440px; margin: 0 auto; padding: 50px 20px 100px; box-sizing: border-box; }
 .container em{}
 .container ul{display: grid; grid-template-columns: 335px 335px 335px 335px; grid-gap: 20px; margin-top: 30px;}
-.container ul li{width: 335px;height: 450px; background: #fff; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; position: relative;}
-.container ul li .movie{width: 100%;height: 60%;background: #555;}
+.container ul li{width: 335px;height: 450px; border-radius: 10px; background: #fff; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; position: relative;}
+.container ul li .movie{width: 100%;height: 60%;background: #555; }
 .container ul li .text{padding: 20px; box-sizing: border-box;}
 .container ul li .text em{font-size: 16px;}
 .container ul li .text p{position: absolute; bottom: 70px;}
@@ -11,7 +11,7 @@
 
 .user{width: 100%; display: flex; justify-content: space-between; align-items: center; position: absolute; bottom:0;left: 0px; border-top: 1px solid #ddd; padding: 15px; box-sizing: border-box;}
 .user div{display: flex; align-items: center; }
-.user img{width: 30px;height: 30px; object-fit: cover;}
+.user img{width: 30px;height: 30px; object-fit: cover; border-radius: 3px;}
 .user strong{font-size: 14px; font-weight: 500; margin-left: 10px;}
 
 .btt{}
