@@ -28,7 +28,7 @@ const Edit = (props) => {
     }
 
     function onFormSend(){
-        fetch('http://localhost:8080/add', {	
+        fetch('https://music-352019.du.r.appspot.com/add', {	
             method: 'post',
             headers: {
             "Content-Type": "application/json; charset=utf-8"	

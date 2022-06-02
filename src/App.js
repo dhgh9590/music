@@ -6,6 +6,8 @@ import Login from './components/login/login';
 import Main from './components/main/main';
 import Edit from './components/edit/edit';
 import Correction from './components/correction/correction';
+import Detail from './components/detail/detail';
+import Nav from './components/nav/nav';
 
 function App() {
   let navigate = useNavigate();
@@ -13,10 +15,11 @@ function App() {
   let [data,setData] = useState();
   let [count,setCount] = useState();
   let [correction,setCorrection] = useState();
+  let [itemData,setItemData] = useState();
 
 
   function onData(){
-    fetch(`http://localhost:8080/data`)
+    fetch(`https://music-352019.du.r.appspot.com/data`)
       .then(res => res.json())
       .then(data => {
         setData(data.posts.sort(function(a,b){
@@ -56,10 +59,14 @@ function App() {
 
   return (
     <div className="App">
+      {
+        localStorage.getItem("emailCheck") ? <Nav setEmailCheck={setEmailCheck}></Nav> : null
+      }
       <Routes>
-        <Route path='/' element={localStorage.getItem("emailCheck") ? <Main setEmailCheck={setEmailCheck} data={data} setData={setData} onData={onData} count={count} setCount={setCount} setCorrection={setCorrection}></Main> : <Login goToHome={goToHome}></Login>}></Route>
+        <Route path='/' element={localStorage.getItem("emailCheck") ? <Main data={data} setData={setData} onData={onData} count={count} setCount={setCount} setCorrection={setCorrection} setItemData={setItemData}></Main> : <Login goToHome={goToHome}></Login>}></Route>
         <Route path='/edit' element={<Edit setEmailCheck={setEmailCheck} setCount={setCount}></Edit>}></Route>
         <Route path='/correction' element={<Correction setEmailCheck={setEmailCheck} setCount={setCount} correction={correction}></Correction>}></Route>
+        <Route path='/detail/:id' element={<Detail itemData={itemData}></Detail>}></Route>
       </Routes>
     </div>
   );

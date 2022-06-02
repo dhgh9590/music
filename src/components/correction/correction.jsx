@@ -17,7 +17,7 @@ const Correction = (props) => {
 
     //데이터 수정 함수
     function formBtt(){
-        fetch('http://localhost:8080/edit', {
+        fetch('https://music-352019.du.r.appspot.com/edit', {
             method: 'put',
             headers: {
             "Content-Type": "application/json; charset=utf-8"

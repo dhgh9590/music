@@ -3,12 +3,15 @@ import { useState } from 'react';
 import Nav from '../nav/nav';
 import styles from "./main.module.css";
 import ReactPlayer from "react-player";
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart,faCaretUp} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart,faCaretUp} from '@fortawesome/free-solid-svg-icons';
+import { detailData } from '../../stor';
 
 const Main = (props) => {
     let navigate = useNavigate();
+    let dispatch = useDispatch();
     let uid = localStorage.getItem("uid");
     let userName = localStorage.getItem("userName");
     let [search,setSearch] = useState();
@@ -27,7 +30,7 @@ const Main = (props) => {
 
     //데이터 삭제 함수
     function formDelete(id){
-        fetch(`http://localhost:8080/delete`, {
+        fetch(`https://music-352019.du.r.appspot.com/delete`, {
             method: 'delete',	
             headers: {
             "Content-Type": "application/json; charset=utf-8"	
@@ -41,7 +44,7 @@ const Main = (props) => {
 
     //데이터 검색 함수
     function onSearch(url,search){
-        fetch(`http://localhost:8080/${url}`,{
+        fetch(`https://music-352019.du.r.appspot.com/${url}`,{
             method: 'post',
             headers: {
             "Content-Type": "application/json; charset=utf-8"
@@ -70,7 +73,7 @@ const Main = (props) => {
     }
     //하트 ajax 요청
     function editHeart(id,heart,heartUser,edit){
-        fetch('http://localhost:8080/heartEdit', {
+        fetch('https://music-352019.du.r.appspot.com/heartEdit', {
             method: 'put',
             headers: {
             "Content-Type": "application/json; charset=utf-8"
@@ -86,7 +89,6 @@ const Main = (props) => {
 
     return (
         <div>
-            <Nav setEmailCheck={props.setEmailCheck}></Nav>
             <section className={styles.section1}>
                 <div className={styles.container}>
                     <div className={styles.search}>
@@ -116,7 +118,7 @@ const Main = (props) => {
                                             />
                                         </div>
                                         <div className={styles.text}>
-                                            <em>{item.title}</em>
+                                            <em onClick={()=>{navigate(`/detail/:${index}`);props.setItemData(item)}}>{item.title}</em>
                                             <div>
                                                 <p>{item.time}</p>
                                                 {
