@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart,faCaretUp} from '@fortawesome/free-solid-svg-icons';
 import { detailData } from '../../stor';
+import { BASE_URL } from '../../constants/api';
 
 const Main = (props) => {
     let navigate = useNavigate();
@@ -30,7 +31,7 @@ const Main = (props) => {
 
     //데이터 삭제 함수
     function formDelete(id){
-        fetch(`https://music-352019.du.r.appspot.com/delete`, {
+        fetch(`${BASE_URL}/delete`, {
             method: 'delete',	
             headers: {
             "Content-Type": "application/json; charset=utf-8"	
@@ -44,7 +45,7 @@ const Main = (props) => {
 
     //데이터 검색 함수
     function onSearch(url,search){
-        fetch(`https://music-352019.du.r.appspot.com/${url}`,{
+        fetch(`${BASE_URL}/${url}`,{
             method: 'post',
             headers: {
             "Content-Type": "application/json; charset=utf-8"
@@ -73,7 +74,7 @@ const Main = (props) => {
     }
     //하트 ajax 요청
     function editHeart(id,heart,heartUser,edit){
-        fetch('https://music-352019.du.r.appspot.com/heartEdit', {
+        fetch(`${BASE_URL}/heartEdit`, {
             method: 'put',
             headers: {
             "Content-Type": "application/json; charset=utf-8"

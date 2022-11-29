@@ -3,7 +3,7 @@ import styles from './correction.module.css';
 import Nav from '../nav/nav';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { BASE_URL } from '../../constants/api';
 
 const Correction = (props) => {
     let navigate = useNavigate();
@@ -17,7 +17,7 @@ const Correction = (props) => {
 
     //데이터 수정 함수
     function formBtt(){
-        fetch('https://music-352019.du.r.appspot.com/edit', {
+        fetch(`${BASE_URL}/edit`, {
             method: 'put',
             headers: {
             "Content-Type": "application/json; charset=utf-8"

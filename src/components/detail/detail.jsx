@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart,faCaretUp} from '@fortawesome/free-solid-svg-icons';
 import ReactPlayer from "react-player";
 import { useEffect } from 'react';
+import { BASE_URL } from '../../constants/api';
 
 const Detail = (props) => {
 
@@ -22,8 +23,6 @@ const Detail = (props) => {
     let [commentNum,setCommentNum] = useState(0);
     let [commentValue,setCommentValue] = useState(inputComment);
 
-    console.log(comment)
-
     //시간 저장
     function timer(){
         let date = new Date();
@@ -38,7 +37,7 @@ const Detail = (props) => {
 
     //댓글 서버에 저장
     function onComment(){
-        fetch('https://music-352019.du.r.appspot.com/comment', {	
+        fetch(`${BASE_URL}/comment`, {	
             method: 'post',
             headers: {
             "Content-Type": "application/json; charset=utf-8"	
@@ -52,7 +51,7 @@ const Detail = (props) => {
 
     //서버에 있는 댓글 가지고 오기
     function commentAdd(){
-        fetch('https://music-352019.du.r.appspot.com/commentData', {	
+        fetch(`${BASE_URL}/commentData`, {	
             method: 'post',
             headers: {
             "Content-Type": "application/json; charset=utf-8"	
@@ -67,7 +66,7 @@ const Detail = (props) => {
     }
     //서버에 있는 댓글 삭제
     function commentDelete(id){
-        fetch(`https://music-352019.du.r.appspot.com/commentDelete`, {
+        fetch(`${BASE_URL}/commentDelete`, {
             method: 'delete',	
             headers: {
             "Content-Type": "application/json; charset=utf-8"	
@@ -100,7 +99,7 @@ const Detail = (props) => {
     }
     //하트 ajax 요청
     function editHeart(id,heart,heartUser,edit){
-        fetch('https://music-352019.du.r.appspot.com/heartEdit', {
+        fetch(`${BASE_URL}/heartEdit`, {
             method: 'put',
             headers: {
             "Content-Type": "application/json; charset=utf-8"

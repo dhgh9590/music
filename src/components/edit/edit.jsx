@@ -4,6 +4,7 @@ import Nav from '../nav/nav';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { BASE_URL } from '../../constants/api';
 
 
 const Edit = (props) => {
@@ -28,7 +29,7 @@ const Edit = (props) => {
     }
 
     function onFormSend(){
-        fetch('https://music-352019.du.r.appspot.com/add', {	
+        fetch(`${BASE_URL}/add`, {	
             method: 'post',
             headers: {
             "Content-Type": "application/json; charset=utf-8"	
